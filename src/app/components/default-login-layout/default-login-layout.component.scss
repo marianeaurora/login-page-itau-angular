@@ -1,0 +1,108 @@
+@import "../../../styles/var.scss";
+
+main{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    section {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .main-section{
+        
+        gap: 15px;
+
+        flex-grow: 1;
+        background-color: white;
+    }
+}
+
+.section-form{
+    flex-grow: 0.3;
+    padding: 0px 35px;
+    background-image: url("../../../assets/svg/bg-form.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    img {
+        margin-bottom: 30px;
+        height: 150px;
+
+    }
+
+    h2{
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 45px;
+
+    }
+
+
+    .btn-container{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100% ;
+
+        gap: 30px;
+
+        .divider{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            gap:20px;
+
+            font-size: 14px;
+            color: white;
+            font-weight: 400;
+            text-transform: uppercase;
+
+            
+
+            div{
+                height: 2px;
+                background-color: white;
+                flex-grow: 1;
+            }
+        }
+
+        button {
+            width: 100% ;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            background-color: transparent;
+            padding: 12px 24px;
+
+            cursor: pointer;
+
+            &.btn-primary{
+                background-color: white;
+                color: $primary-color;
+                box-shadow: 0px 8px 12px rgba(28.715834319591522, 17.885416075587273, 42.5000012665987, 0.20000000298023224) ;
+                
+                font-weight: 700;
+            }
+    
+            &.btn-secondary{
+                border: 1px solid white ;
+                color: white;
+            }
+        }
+        
+    }
+
+}
+
