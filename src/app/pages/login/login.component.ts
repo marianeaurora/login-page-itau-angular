@@ -4,6 +4,9 @@ import { FormControl, FormGroup,FormRecord, ReactiveFormsModule, Validators } fr
 import { PrimaryInputComponent } from '../../components/primary-input/primary-input.component';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login-services.service';
+import { ToastrService } from 'ngx-toastr';
+
+
 
 interface LoginForm {
   email: FormControl,
@@ -26,10 +29,12 @@ interface LoginForm {
 export class LoginComponent {
 
   loginForm: FormGroup<LoginForm>;
+  //toastService:any;
 
   constructor(
     private router : Router,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private toastService: ToastrService
   ) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -40,13 +45,12 @@ export class LoginComponent {
   submit(){
     this.loginService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe(
       {
-        next: () => console.log("sucesso"),
-        error: () => console.log("error")
-      }
-    )
+        next: () => this.toastService.success("Login feito com sucesso!"),
+        error: () => this.toastService.error("Erro. Tente novamente")
+      })
   }
 
   navigate(){
-    this.router.navigate(["/cadastro"])
+    this.router.navigate(["cadastro"])
   }
 }
